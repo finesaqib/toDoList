@@ -16,7 +16,10 @@ const listSchema = {
   name: String,
   Items: [itemsSchema]
 }
-
+let port = process.env.PORT;
+if (port === null  || port = "") {
+  post = 3000
+}
 const Item = mongoose.model( "Item", itemsSchema);
 
 const List = mongoose.model("List", listSchema);
@@ -144,7 +147,6 @@ if (listName === "Today"){
 
 })
 
-
-app.listen(3000, function(){
+app.listen(port, function(){
   console.log("Server is running on port 3000");
 });
